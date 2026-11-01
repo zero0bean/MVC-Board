@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>System Check</title>
+    <link rel="stylesheet" th:href="@{/css/setup.css}">
+</head>
+<body>
+<main class="page-shell">
+    <header class="page-heading">
+        <h1>System Check</h1>
+        <p>Current PostgreSQL connection details.</p>
+    </header>
+
+    <section class="connection-section" aria-labelledby="connection-title">
+        <h2 id="connection-title">Database Connection</h2>
+        <p class="connection-result">Connected to PostgreSQL.</p>
+
+        <dl class="connection-list">
+            <div>
+                <dt>Database</dt>
+                <dd th:text="${connection.databaseName}">board_db_yb</dd>
+            </div>
+            <div>
+                <dt>Database User</dt>
+                <dd th:text="${connection.databaseUser}">board_db_yb</dd>
+            </div>
+            <div>
+                <dt>PostgreSQL Version</dt>
+                <dd th:text="${connection.serverVersion}">18.1</dd>
+            </div>
+            <div>
+                <dt>Checked At</dt>
+                <dd th:text="${connection.checkedAtText}">2026-11-01 21:00:00</dd>
+            </div>
+        </dl>
+    </section>
+</main>
+</body>
+</html>

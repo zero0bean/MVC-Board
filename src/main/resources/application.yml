@@ -4,7 +4,7 @@ spring:
   datasource:
     url: ${BOARD_DB_URL:jdbc:postgresql://localhost:5432/board_db}
     username: ${BOARD_DB_USERNAME:board_db}
-    password: ${BOARD_DB_PASSWORD:}
+    password: ${BOARD_DB_PASSWORD:Board2026!}
     driver-class-name: org.postgresql.Driver
     hikari:
       connection-timeout: 5000
@@ -12,8 +12,14 @@ spring:
       minimum-idle: 1
 server:
   port: 8080
+  error:
+    whitelabel:
+      enabled: false
+    include-message: never
+    include-stacktrace: never
+
 mybatis:
-  mapper-location: classpath:/mybatis/**/*.xml
+  mapper-locations: classpath:/mybatis/**/*.xml
   type-aliases-package: com.studyhub.board.setup.model
   configuration:
     map-underscore-to-camel-case: true
